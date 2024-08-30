@@ -16,7 +16,7 @@ services:
   exporter:
     build:
       context: .
-      dockerfile: ./Docker/Prometheus/node/exporter/Dockerfile
+      dockerfile: ./Docker/Prometheus/exporter/node/Dockerfile
     container_name: node-exporter
     ports:
       - 9100:9100

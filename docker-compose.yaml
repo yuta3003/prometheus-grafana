@@ -1,4 +1,3 @@
-version: '3'
 services:
   prometheus:
     build:
@@ -13,13 +12,22 @@ services:
     restart: always
     # http://prometheus:9090
 
-  exporter:
+  node-exporter:
     build:
       context: .
-      dockerfile: ./Docker/Prometheus/exporter/node/Dockerfile
+      dockerfile: ./Docker/Prometheus/exporter/node-exporter/Dockerfile
     container_name: node-exporter
     ports:
       - 9100:9100
+    restart: always
+
+  blackbox-exporter:
+    build:
+      context: .
+      dockerfile: ./Docker/Prometheus/exporter/blackbox-exporter/Dockerfile
+    container_name: blackbox-exporter
+    ports:
+      - 9115:9115
     restart: always
 
   grafana:

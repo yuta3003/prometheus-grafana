@@ -15,6 +15,10 @@ scrape_configs:
     static_configs:
       - targets: ['dcgm-exporter:9400']
 
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+
   - job_name: 'url-monitor'
     metrics_path: /probe
     params:
